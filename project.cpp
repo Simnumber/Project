@@ -8,37 +8,37 @@
 using namespace std;
 
 class Graph {
-   int x,y,z;//координаты объекта
-   bool beer;//критерий видимости
-   string name;//имя объекта
-   int ignoreColor;//игнорируемый(фоновый) цвет
-   int width, height;//ширина и высота объекта
-   IMAGE *mask;//маска
-   IMAGE *picture;//исходная картинка
-   IMAGE *changed_image;//измененная картинка(для использования)
+   int x,y,z;//ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г®ГЎГєГҐГЄГІГ 
+   bool visibility;//ГЄГ°ГЁГІГҐГ°ГЁГ© ГўГЁГ¤ГЁГ¬Г®Г±ГІГЁ
+   string name;//ГЁГ¬Гї Г®ГЎГєГҐГЄГІГ 
+   int ignoreColor;//ГЁГЈГ­Г®Г°ГЁГ°ГіГҐГ¬Г»Г©(ГґГ®Г­Г®ГўГ»Г©) Г¶ГўГҐГІ
+   int width, height;//ГёГЁГ°ГЁГ­Г  ГЁ ГўГ»Г±Г®ГІГ  Г®ГЎГєГҐГЄГІГ 
+   IMAGE *mask;//Г¬Г Г±ГЄГ 
+   IMAGE *picture;//ГЁГ±ГµГ®Г¤Г­Г Гї ГЄГ Г°ГІГЁГ­ГЄГ 
+   IMAGE *changed_image;//ГЁГ§Г¬ГҐГ­ГҐГ­Г­Г Гї ГЄГ Г°ГІГЁГ­ГЄГ (Г¤Г«Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї)
 private:
-   draw();//отрисовка объекта
+   draw();//Г®ГІГ°ГЁГ±Г®ГўГЄГ  Г®ГЎГєГҐГЄГІГ 
    IMAGE *create_mask();
 public:
-   Graph(string name, int, int); //конструктор
-   ~Graph();//деструктор
-   void resize(int, int);//изменение размера картинки
-   int getx() const {return x;} //получить координату x
-   int gety() const {return y;} //получить координату y
-   void setxy(int, int);//установить x и y
-   int getz() const {return z;} //получить z
-   void setz(int);//установить z
+   Graph(string name, int, int); //ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°
+   ~Graph();//Г¤ГҐГ±ГІГ°ГіГЄГІГ®Г°
+   void resize(int, int);//ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г°Г Г§Г¬ГҐГ°Г  ГЄГ Г°ГІГЁГ­ГЄГЁ
+   int getx() const {return x;} //ГЇГ®Г«ГіГ·ГЁГІГј ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГі x
+   int gety() const {return y;} //ГЇГ®Г«ГіГ·ГЁГІГј ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГі y
+   void setxy(int, int);//ГіГ±ГІГ Г­Г®ГўГЁГІГј x ГЁ y
+   int getz() const {return z;} //ГЇГ®Г«ГіГ·ГЁГІГј z
+   void setz(int);//ГіГ±ГІГ Г­Г®ГўГЁГІГј z
     bool friend operator==(Graph& a, Graph& b){
       return a.x==b.x && a.y==b.y && a.name==b.name;
       }
-   int getvisible() const {return beer;} //получить значение beer
-   void setvisible(bool);//установить значение beer
-   string getfilename() const;//получить имя файла
-   void setfilename(string name);//установить имя файла
-   int get_width() const {return width;} //узнать ширину и высоту изображения
-   int get_height() const {return height;} //узнать ширину и высоту изображения
-   int get_ignoreColor() {return ignoreColor;} //игнорируемый цвет
-   void set_ignoreColor(int);//изменить игнорируемый цвет
+   int getvisible() const {return beer;} //ГЇГ®Г«ГіГ·ГЁГІГј Г§Г­Г Г·ГҐГ­ГЁГҐ beer
+   void setvisible(bool);//ГіГ±ГІГ Г­Г®ГўГЁГІГј Г§Г­Г Г·ГҐГ­ГЁГҐ beer
+   string getfilename() const;//ГЇГ®Г«ГіГ·ГЁГІГј ГЁГ¬Гї ГґГ Г©Г«Г 
+   void setfilename(string name);//ГіГ±ГІГ Г­Г®ГўГЁГІГј ГЁГ¬Гї ГґГ Г©Г«Г 
+   int get_width() const {return width;} //ГіГ§Г­Г ГІГј ГёГЁГ°ГЁГ­Гі ГЁ ГўГ»Г±Г®ГІГі ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
+   int get_height() const {return height;} //ГіГ§Г­Г ГІГј ГёГЁГ°ГЁГ­Гі ГЁ ГўГ»Г±Г®ГІГі ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
+   int get_ignoreColor() {return ignoreColor;} //ГЁГЈГ­Г®Г°ГЁГ°ГіГҐГ¬Г»Г© Г¶ГўГҐГІ
+   void set_ignoreColor(int);//ГЁГ§Г¬ГҐГ­ГЁГІГј ГЁГЈГ­Г®Г°ГЁГ°ГіГҐГ¬Г»Г© Г¶ГўГҐГІ
    friend class Screen;
 };
 
@@ -106,14 +106,14 @@ int Screen::find(Graph a){
 
 void Screen::refresh() {
    p=1-p;
-   setactivepage(p); // активная страница == 1-видимая
-   setbkcolor(BLACK); // цвет фона
-   clearviewport(); // закраска текущей страницы цветом фона
+   setactivepage(p); // Г ГЄГІГЁГўГ­Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  == 1-ГўГЁГ¤ГЁГ¬Г Гї
+   setbkcolor(BLACK); // Г¶ГўГҐГІ ГґГ®Г­Г 
+   clearviewport(); // Г§Г ГЄГ°Г Г±ГЄГ  ГІГҐГЄГіГ№ГҐГ© Г±ГІГ°Г Г­ГЁГ¶Г» Г¶ГўГҐГІГ®Г¬ ГґГ®Г­Г 
    for (auto at:object) {
       putimage(at.second->x,at.second->y,at.second->mask,AND_PUT);
       putimage(at.second->x,at.second->y,at.second->changed_image,OR_PUT);
    }
-    setvisualpage(p); // делаем активную страницу видимой
+    setvisualpage(p); // Г¤ГҐГ«Г ГҐГ¬ Г ГЄГІГЁГўГ­ГіГѕ Г±ГІГ°Г Г­ГЁГ¶Гі ГўГЁГ¤ГЁГ¬Г®Г©
 }
 
 Screen back;
@@ -166,7 +166,7 @@ Graph::Graph(string name, int x, int y) {
    x=back.getwidth()/2;
    y=back.getheight()/2;
    bar(x-width/2,y-height/2, x+width,x-height);
-   beer=1;
+   visibility=1;
    z=back.object.size();
    ignoreColor=34;
 }
@@ -188,7 +188,7 @@ void Graph::setz(int z_buf) {
 }
 
 void Graph::setvisible(bool visible_buf) {
-   beer=visible_buf;
+   visibility=visible_buf;
 }
 
 void Graph::setfilename(string name_buf) {
@@ -202,7 +202,7 @@ void Graph::set_ignoreColor(int color) {
 int main()
 {
    
-   int t=0; // номер кадра (время)
+   int t=0; // Г­Г®Г¬ГҐГ° ГЄГ Г¤Г°Г  (ГўГ°ГҐГ¬Гї)
    cout<<9;
    back.add( new Graph("background.bmp",0, 0));
    back.add(new Graph("star1.bmp", 140, 255));
@@ -213,8 +213,8 @@ int main()
    {
       ++t;
       back.refresh();
-      delay(180); // задержка на 1/60 секунды
-      if (kbhit()) break; // если нажата клавиша - завершить работу
+      delay(180); // Г§Г Г¤ГҐГ°Г¦ГЄГ  Г­Г  1/60 Г±ГҐГЄГіГ­Г¤Г»
+      if (kbhit()) break; // ГҐГ±Г«ГЁ Г­Г Г¦Г ГІГ  ГЄГ«Г ГўГЁГёГ  - Г§Г ГўГҐГ°ГёГЁГІГј Г°Г ГЎГ®ГІГі
    }
    closegraph();
 }
